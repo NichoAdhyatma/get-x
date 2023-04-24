@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/controllers/counter_controller.dart';
-import './screens/home.dart';
+import 'package:flutter_getx/screens/bab_2.getBuilder.dart';
 import 'package:get/get.dart';
 
 void main() => runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       () => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: counterC.isDark.value ? ThemeData.dark() : ThemeData.light(),
-        home: const HomePage(),
+        home: const Bab2GetXBuilder(),
       ),
     );
   }

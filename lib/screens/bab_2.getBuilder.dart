@@ -2,32 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx/controllers/counter_controller.dart';
 import 'package:get/get.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Bab2GetXBuilder extends StatelessWidget {
+  const Bab2GetXBuilder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final c = Get.find<CounterController>();
+    final counterC = Get.find<CounterController>();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Flutter GetX"),
+        title: const Text("Flutter GetX 2"),
         actions: [
           IconButton(
-            onPressed: () => c.darkMode(),
+            onPressed: counterC.darkMode,
             icon: const Icon(Icons.dark_mode_outlined),
-          )
+          ),
         ],
       ),
       body: Center(
-        child: Obx(
-          () => Text(
-            "Number ${c.counter}",
+        child: GetBuilder<CounterController>(
+          builder: (controller) => Text(
+            "Count from Get builder ${controller.counterSimple}",
             style: const TextStyle(fontSize: 24),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => c.increment(),
+        onPressed: () => counterC.incrementSimple(),
         child: const Icon(Icons.add),
       ),
     );
